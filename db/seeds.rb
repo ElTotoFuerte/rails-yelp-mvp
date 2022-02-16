@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 100 fake restaurants...'
+
+10.times do
+  restaurant = Restaurant.new(
+    name: Faker::Games::Minecraft.achievement,
+    address: Faker::Fantasy::Tolkien.location,
+    phone_number: Faker::PhoneNumber.cell_phone_with_country_code,
+    category: %w[chinese italian japanese french belgian].sample
+  )
+  restaurant.save!
+end
+puts "I'm done"
